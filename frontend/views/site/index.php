@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = 'My Yii Application';
@@ -19,8 +20,8 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <?php foreach ($users as $user): ?>
-            <a href="<?php echo Url::to(['/user/profile/view', 'id' => $user->id]); ?>">
-                <?php echo $user->username; ?>
+            <a href="<?php echo Url::to(['/user/profile/view', 'nickname' => $user->getNickname()]); ?>">
+                <?php echo Html::encode($user->username); ?>
             </a>
 
             <hr>
