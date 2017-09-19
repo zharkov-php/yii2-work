@@ -24,8 +24,12 @@ use yii\helpers\Url;
 <?php if ($currentUser && !$user->equals($currentUser)): ?>
 <hr>
 
-<a href="<?php echo Url::to(['/user/profile/subscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Subscribe</a>
-<a href="<?php echo Url::to(['/user/profile/unsubscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Unsubscribe</a>
+    <?php if (!$currentUser->isFollowing($user)): ?>
+
+                <a href="<?php echo Url::to(['/user/profile/subscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Subscribe</a>
+            <?php else: ?>
+                <a href="<?php echo Url::to(['/user/profile/unsubscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Unsubscribe</a>
+            <?php endif; ?>
 
 <hr>
 
