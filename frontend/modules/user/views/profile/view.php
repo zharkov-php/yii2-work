@@ -21,6 +21,7 @@ use yii\helpers\Url;
 
 <h3><?php echo Html::encode($user->username); ?></h3>
 <p><?php echo HtmlPurifier::process($user->about); ?></p>
+<?php if ($currentUser && !$user->equals($currentUser)): ?>
 <hr>
 
 <a href="<?php echo Url::to(['/user/profile/subscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Subscribe</a>
@@ -38,7 +39,7 @@ use yii\helpers\Url;
                     </div>
             <?php endforeach; ?>
     </div>
-
+<?php endif; ?>
 <hr>
 
 <!-- Button trigger modal -->
