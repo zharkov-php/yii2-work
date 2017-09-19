@@ -30,12 +30,12 @@ use yii\helpers\Url;
             <?php else: ?>
                 <a href="<?php echo Url::to(['/user/profile/unsubscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Unsubscribe</a>
             <?php endif; ?>
-
+<?php if ($mutualSubscriptions = $currentUser->getMutualSubscriptionsTo($user)): ?>
 <hr>
 
 <h5>Friends, who are also following <?php echo Html::encode($user->username); ?>: </h5>
 <div class="row">
-        <?php foreach ($currentUser->getMutualSubscriptionsTo($user) as $item): ?>
+    <?php foreach ($mutualSubscriptions as $item): ?>
                 <div class="col-md-12">
                         <a href="<?php echo Url::to(['/user/profile/view', 'nickname' => ($item['nickname']) ? $item['nickname'] : $item['id']]); ?>">
                                 <?php echo Html::encode($item['username']); ?>
@@ -43,6 +43,7 @@ use yii\helpers\Url;
                     </div>
             <?php endforeach; ?>
     </div>
+<?php endif; ?>
 <?php endif; ?>
 <hr>
 
