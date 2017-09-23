@@ -45,7 +45,11 @@ return [
             ],
         ],
 
-    ],
+        'storage' => [
+            'class' => 'frontend\components\Storage',
+        ],
+
+],
 
     /*
      * ModuleUser
@@ -55,5 +59,6 @@ return [
             'class' => 'frontend\modules\user\Module',
         ],
     ],
+
     'params' => $params,
 ];
