@@ -42,8 +42,8 @@ use dosamigos\fileupload\FileUpload;
         ],
     ]); ?>
 
-
-    <hr/>
+    <a href="<?php echo Url::to(['/user/profile/delete-picture']); ?>" class="btn btn-danger">Delete picture</a>
+   
 
 <?php else: ?>
     <a href="<?php echo Url::to(['/user/profile/subscribe', 'id' => $user->getId()]); ?>" class="btn btn-info">Subscribe</a>
