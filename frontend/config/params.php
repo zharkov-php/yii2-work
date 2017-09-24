@@ -9,4 +9,9 @@ return [
                 'maxWidth' => 200,
                 'maxHeight' => 300,
             ],
+    //
+    'postPicture' => [
+                'maxWidth' => 1024,
+                'maxHeight' => 768,
+            ],
 ];
